@@ -1,0 +1,83 @@
+﻿@page
+@model StarTEDA02.Pages.Samples.QueryModel
+@{
+    ViewData["Title"] = "Query";
+}
+
+<h2>Clubs by Status</h2>
+<p>Select club status: </p>
+<form method="post">
+    <input asp-for="StatusCat" type="radio" id="active" name="StatusCat" value="True" required>
+    <label for="active">Active</label>
+    <br>
+    <input asp-for="StatusCat" type="radio" id="inactive" name="StatusCat" value="False">
+    <label for="inactive">Inactive</label>
+    <br><br />
+    <button type="submit" asp-page-handler="Search">Search</button>
+    <button type="submit" asp-page-handler="AddClub">Add Club</button>
+</form>
+
+
+@if(Model.ClubList != null){
+    if (Model.ClubList.Count() == 0)
+    {
+        <p>There are no products on file for the selected category.</p>
+    }
+    else{
+        <table>
+            <thead>
+                <tr>
+                    <th>Update</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Staff</th>
+                    <th>Fee</th>
+                </tr>
+            </thead>
+        <tbody>
+            @foreach(var item in Model.ClubList){
+                <tr>
+                        <td>
+                            <a href="/Samples/CRUD/@item.ClubID">
+                                Edit
+                            </a>
+                        </td>
+                    <td>@item.ClubID</td>
+                    <td>@item.ClubName</td>
+                    <td>
+                        <select disabled>
+                            @if (item.EmployeeID == null)
+                            {
+                                <option selected>
+                                 No Employee Assigned
+                                    </option>
+                                }
+                                else
+                                {
+                                    @foreach (var employee in Model.EmployeeList)
+                                    {
+                                        if(item.Employee.FullName == employee.FullName)
+                                        {
+                                            <option selected>@employee.FullName</option>
+                                        }
+                                        else
+                                        {
+                                            <option>@employee.FullName</option>
+                                        }
+
+                                    }
+                                    <option>
+                                        No Employee Assigned
+                                    </option>
+                                }
+                            }
+                            
+                        </select>
+                    </td>
+                    <td>$@Math.Round(item.Fee, 2)</td>
+                </tr>
+            }
+        </tbody>
+        </table>
+    }
+}

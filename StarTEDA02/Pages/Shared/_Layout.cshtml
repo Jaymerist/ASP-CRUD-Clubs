@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StarTEDA02</title>
+    <link rel="stylesheet" href="~/css/light-fairypink.css" type="text/css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/StarTEDA02.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <nav>
+        <header>
+            <a href="#">StarTED : A02 - Clubs</a>
+        </header>
+        <input type="checkbox" id="nav" hidden checked>
+        <div overflow>
+            <ul>
+                <!--active link in navbar with active attribute-->
+                <li><a asp-area="" asp-page="/Index">Home</a></li>
+                <li><a asp-area="" asp-page="/Samples/Query">Query</a></li>
+                <li><a asp-area="" asp-page="/Samples/CRUD">CRUD</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <h1 class="display-4">StarTED Scenario A02 - Clubs</h1>
+            <p class="author">Author: Mihiri Kamiss</p>
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - StarTEDA02 - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

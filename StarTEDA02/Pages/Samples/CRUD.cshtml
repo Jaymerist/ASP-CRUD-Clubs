@@ -1,0 +1,116 @@
+﻿@page "{clubid?}"
+@model StarTEDA02.Pages.Samples.CRUDModel
+@{
+    ViewData["Title"] = "CRUD";
+}
+
+<h2>CRUD</h2>
+
+@if (Model.HasFeedback)
+{
+    <p>@Model.Feedback</p>
+}
+
+@if (ModelState.ErrorCount > 0)
+{
+    <div asp-validation-summary="All" class="alert alert-danger">
+
+        <p>Please review concerns and correct:</p>
+
+    </div>
+}
+
+<form method="post">
+
+    <label>
+        Club ID: 
+        @if (Model.clubInfo == null)
+        {
+            <input type="text" asp-for="clubInfo.ClubID" data-val="false"
+                   placeholder="club id" required>
+        }
+        else
+        {
+            <input type="text" asp-for="clubInfo.ClubID" readonly data-val="false">
+        }
+        <span asp-validation-for="clubInfo.ClubID"></span>
+    </label>
+    <br />
+    <label>
+        Club Name:
+        <input type="text" asp-for="clubInfo.ClubName" placeholder="club name" required />
+        <span asp-validation-for="clubInfo.ClubName"></span>
+    </label>
+    <br />
+    <label>
+        Assign a club employee:
+        <select asp-for="clubInfo.EmployeeID">
+                <option value="">
+                    No Employee Assigned
+                </option>
+            @foreach (var employee in Model.employeeList)
+            {
+                <option value="@employee.EmployeeID"
+                        selected=@(Model.clubInfo != null
+                    && employee.EmployeeID == Model.clubInfo.EmployeeID)>
+                    @employee.FullName
+                </option>
+            }
+        </select>
+        <span asp-validation-for="clubInfo.ClubID"></span>
+    </label>
+    <br />
+    <label>
+        Fee:
+        <input type="number" asp-for="clubInfo.Fee" placeholder="enter a value" step="0.01" min="0.00" required/>
+        <span asp-validation-for="clubInfo.Fee"></span>
+    </label>
+    <br />
+    @if (!string.IsNullOrEmpty(Model.clubid))
+    {
+        <label>
+            Active
+            <input type="checkbox" asp-for="@Model.clubInfo.Active" value=true checked="@Model.clubInfo.Active"/>
+            <br />(Change active status by using the Activate/Deactivate button)
+        </label>
+    }
+    else
+    {
+        <p>Clubs are automatically set to active.</p>
+    }
+
+
+    <br /><br />
+    @if (!string.IsNullOrEmpty(Model.clubid))
+    {
+        //an existing club
+        <button type="submit" asp-page-handler="Add" disabled>Save New</button>
+        <button type="submit" asp-page-handler="Update">Update</button>
+        if (Model.clubInfo.Active)
+        {
+            <button type="submit" asp-page-handler="Delete" formnovalidate
+                    onclick="return confirm('Are you sure you wish to deactivate this club?')">
+                Deactivate
+            </button>
+        }
+        else
+        {
+            <button type="submit" asp-page-handler="Restore" formnovalidate
+                    onclick="return confirm('Are you sure you wish to activate this club?')">
+                Activate
+            </button>
+        }
+    }
+    else
+    {
+        //a new club
+        <button type="submit" asp-page-handler="Add">Save New</button>
+        <button type="submit" asp-page-handler="Update" disabled>Update</button>
+        <button type="submit" asp-page-handler="Delete" disabled formnovalidate
+                onclick="return confirm('Are you sure you wish to deactivate this club?')">
+            Discontinue
+        </button>
+    }
+    <button type="submit" asp-page-handler="Clear" formnovalidate>Clear</button>
+    <button type="submit" asp-page-handler="Search" formnovalidate>Return to Search</button>
+</form>
