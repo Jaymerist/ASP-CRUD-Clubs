@@ -12,4 +12,4 @@ In order to run the files, the StarTED.bacpac file must be reverse engineered in
 
 Change the server path for "STDB" in StarTEDA02 > appsettings.json under "ConnectionStrings" to your local StarTED database. 
 
-**Commit history is unavailable for this project as it was moved from a seperate directory.
+**Commit history is unavailable for this project as it was moved from a seperate directory.**
