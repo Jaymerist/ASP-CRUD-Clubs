@@ -1,0 +1,12 @@
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\bin\Debug\net6.0\StarTEDSystem.deps.json
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\bin\Debug\net6.0\StarTEDSystem.dll
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\bin\Debug\net6.0\StarTEDSystem.pdb
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\StarTEDSystem.csproj.AssemblyReference.cache
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\StarTEDSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\StarTEDSystem.AssemblyInfoInputs.cache
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\StarTEDSystem.AssemblyInfo.cs
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\StarTEDSystem.csproj.CoreCompileInputs.cache
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\StarTEDSystem.dll
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\refint\StarTEDSystem.dll
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\StarTEDSystem.pdb
+C:\Users\Mihiri\Documents\GitHub\ASP-CRUD-Clubs\StarTEDSystem\obj\Debug\net6.0\ref\StarTEDSystem.dll
